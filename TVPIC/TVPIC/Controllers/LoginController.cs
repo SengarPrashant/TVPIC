@@ -22,7 +22,6 @@ namespace TVPIC.Controllers
             var pass = Convert.ToString(obj["txtPassword"]).Trim();
             User user = new User();
             user = user.ValidateUser(username, pass);
-            
             if (user.Message == "")
             {
                 Common.UserSession = user;
