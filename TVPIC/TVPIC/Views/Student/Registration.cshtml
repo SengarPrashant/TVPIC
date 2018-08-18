@@ -1,0 +1,353 @@
+﻿<script type="text/javascript">
+
+    function ShowPreview(event) {
+        $('#userimg').attr('src', URL.createObjectURL(event.target.files[0]));
+    }  
+</script>
+<style type="text/css">
+    .fileContainer {
+        overflow: hidden;
+        position: relative;
+        font-size:small;
+        font-weight:normal !important;
+        color:#067dd2;
+        margin-left:20px;
+    }
+
+    .fileContainer [type=file] {
+        cursor: pointer;
+        display: block;
+        filter: alpha(opacity=0);
+        min-height: 100%;
+        min-width: 100%;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+    }
+</style>
+
+<div class="row" style="margin-top:2%;">
+    <div class="col-md-12">
+        <form class="form-horizontal" role="form">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Personal Information Details</legend>
+                <!-- Text input-->
+
+                <div class="form-group" style="vertical-align:bottom;">
+                    <div class="col-sm-2">
+                        <img src="~/UserImage/avatar.png" id="userimg" style="height:125px; width:125px;" class="img-thumbnail img-responsive" />
+                        <label class="fileContainer">
+                            Upload Image
+                            <input id="imgInp" onchange="ShowPreview(event)" type="file" />
+                        </label>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                First Name
+                                <input type="text" name="fistName" placeholder="First Name" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                Middle Name
+                                <input type="text" name="middleName" placeholder="Middle Name" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                Last Name
+                                <input type="text" name="lastName" placeholder="Last Name" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                Gender
+                                <select type="gender" placeholder="Gender" class="form-control">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="female">Trigender</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10">
+                        <div class="form-group pull-bottom">
+
+                            <div class="col-sm-3">
+                                Date Of Birth
+                                <input type="date" placeholder="Date Of Birth" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                Category
+                                <select type="Category" placeholder="Category" class="form-control">
+                                    <option value="GEN">General</option>
+                                    <option value="SC">Scheduled</option>
+                                    <option value="ST">Sch. Tribe</option>
+                                    <option value="OBC">Backward</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                Medium
+                                <select type="gender" placeholder="Gender" class="form-control">
+                                    <option value="GEN">Hindi</option>
+                                    <option value="SC">English</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                Is Disabled?
+                                <select type="gender" placeholder="Gender" class="form-control">
+                                    <option value="0">No</option>
+                                    <option value="female">Eye</option>
+                                    <option value="female">Hand</option>
+                                    <option value="female">Leg</option>
+                                    <option value="female">Deaf and Dunb</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Address Section -->
+                <!-- Form Name -->
+                <legend>Current Address</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                Address Line 1
+                                <input type="text" name="addressLine1" placeholder="Address Line 1" class="form-control">
+                            </div>
+                            <div class="col-sm-6">
+                                Address Line 2
+                                <input type="text" name="addressLine2" placeholder="Address Line 2" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                City
+                                <input type="text" name="city" placeholder="City" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                State
+                                <input type="text" name="state" placeholder="State" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                Pin Code
+                                <input type="text" name="postalCode" placeholder="Pin Code" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <legend>
+                    Permanent Address
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="checkbox" style="display:inline;min-height:unset; cursor:pointer;" />
+                    Same as current address?
+                </legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                Address Line 1
+                                <input type="text" name="addressLine1" placeholder="Address Line 1" class="form-control">
+                            </div>
+                            <div class="col-sm-6">
+                                Address Line 2
+                                <input type="text" name="addressLine2" placeholder="Address Line 2" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="col-sm-4">
+                                City
+                                <input type="text" name="city" placeholder="City" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                State
+                                <input type="text" name="state" placeholder="State" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                Pin Code
+                                <input type="text" name="postalCode" placeholder="Pin Code" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parent/Guadian Contact Section -->
+                <!-- Form Name -->
+                <legend>Parent/Guadian Information</legend>
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <b>Father</b> First Name
+                        <input type="text" name="pFistName" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Middle Name
+                        <input type="text" name="pMiddleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Last Name
+                        <input type="text" name="pLastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Contact No.
+                        <input type="pPhoneNbr" placeholder="Phone Number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <b>Mother</b> First Name
+                        <input type="text" name="pFistName" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Middle Name
+                        <input type="text" name="pMiddleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Last Name
+                        <input type="text" name="pLastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Contact No.
+                        <input type="pPhoneNbr" placeholder="Phone Number" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <b>Guadian</b> First Name
+                        <input type="text" name="pFistName" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Middle Name
+                        <input type="text" name="pMiddleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Last Name
+                        <input type="text" name="pLastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        Contact No.
+                        <input type="pPhoneNbr" placeholder="Phone Number" class="form-control">
+                    </div>
+                </div>
+                <legend>Registration for class</legend>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        Class
+                        <select type="Class" placeholder="Class" class="form-control">
+                            <option value="0">Nursary</option>
+                            <option value="0.1">LKG</option>
+                            <option value="0.2">UKG</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="5">5th</option>
+                            <option value="6">6th</option>
+                            <option value="7">7th</option>
+                            <option value="8">8th</option>
+                            <option value="9">9th</option>
+                            <option value="10">10th</option>
+                            <option value="11">11th</option>
+                            <option value="12">12th</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3">
+                        Category
+                        <select type="ClassCategory" placeholder="ClassCategory" class="form-control">
+                            <option value="Select">Select</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        Section
+                        <select type="Section" placeholder="Section" class="form-control">
+                            <option value="Select">Select</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        1st Mandatory Subject
+                        <input type="text" name="pFistName" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        2nd Mandatory Subject
+                        <input type="text" name="pMiddleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        3rd Mandatory Subject
+                        <input type="text" name="pLastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        4th Mandatory Subject
+                        <input type="pPhoneNbr" placeholder="Phone Number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        5th Mandatory Subject
+                        <input type="text" name="pFistName" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        6th Mandatory Subject
+                        <input type="text" name="pMiddleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        7th Subject
+                        <input type="text" name="pLastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        8th Subject
+                        <input type="pPhoneNbr" placeholder="Phone Number" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Command -->
+                <div class="form-group">
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload Image</h4>
+            </div>
+            <div class="modal-body">
+               <input type="file"  class="form-group"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

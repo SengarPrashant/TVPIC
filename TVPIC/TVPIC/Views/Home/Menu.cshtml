@@ -1,0 +1,100 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Tulasi Vidyapeeth", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @{
+                    var Menu = ViewBag.Menu as System.Data.DataTable;
+                    var MenuItem = ViewBag.MenuItem as System.Data.DataTable;
+                    foreach (System.Data.DataRow dr in Menu.Rows)
+                    {
+                        var drs = MenuItem.Select("ParentID=" + dr["MenuID"].ToString());
+                        if (drs.Length == 0)
+                        {
+                            @*<i class="fa fa-home fa-fw"></i>*@
+
+                            <li>@Html.ActionLink(dr["DisplayText"].ToString(), dr["Action"].ToString(), dr["Controller"].ToString())</li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@dr["DisplayText"].ToString() <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    @{
+                                        foreach (System.Data.DataRow dritem in drs)
+                                        {
+                                            <li>@Html.ActionLink(dritem["DisplayText"].ToString(), dritem["Action"].ToString(), dritem["Controller"].ToString())</li>
+                                        }
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right vcenter">
+                @{
+                    if (ViewBag.UserName != "")
+                    {
+                        @*<li>
+                                <a href="#">@ViewBag.UserName</a>
+                            </li>*@
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle userwrp" data-toggle="dropdown">
+                                <div class="inset">
+
+                                    <span>@ViewBag.UserName</span>
+                                    <span class="usericon">
+                                        <img src="@ViewBag.Image" alt="User Image" class="pull-right img-responsive">
+                                    </span>
+                                </div>
+
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="@Url.Action("Logout", "Login")">
+                                        <i class="fa fa-sign-out fa-fw"></i>
+                                        Log out
+                                    </a>
+                                    @*@Html.ActionLink("Log off", "Logout", "Login")*@
+                                </li>
+                            </ul>
+
+                            @*<ul class="dropdown-menu">
+                                    <li>
+
+                                        @Html.ActionLink("Log off", "Logout", "Login")
+                                    </li>
+                                </ul>*@
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action("Index", "Login")">
+                                <i class="fa fa-user fa-fw"></i>
+                                Login
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>

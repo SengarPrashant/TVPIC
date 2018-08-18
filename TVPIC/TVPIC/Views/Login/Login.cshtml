@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    var flag = "@ViewBag.Message";
+    if (flag == "") {
+        $("#errmsg").addClass('hide');
+    }
+    else {
+        $("#errmsg").removeClass('hide');
+    }
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                        {
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("lblUser", "User ID")
+                                @Html.TextBox("txtUserID", null, new { @class = "form-control", @placeholder = "User id" })
+                            </div>
+                            <div class="form-group">
+                                @Html.Label("lblPassword", "Password")
+                                @Html.Password("txtPassword", null, new { @class = "form-control", @placeholder = "Password" })
+                            </div>
+                            <br />
+                            <div class="align-center">
+                                <button type="submit" class="btn btn-default btn-primary btn-block bottommar10" id="login">Login</button>
+                            </div>
+                            if (ViewBag.Message != "")
+                            {
+                            <div id="errmsg" class="alert alert-danger">
+                                @ViewBag.Message
+                            </div>
+                            }
+                        }
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
